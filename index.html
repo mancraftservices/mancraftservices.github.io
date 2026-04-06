@@ -44,14 +44,16 @@
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--ivory-3);
   }
-  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; background: rgba(247,243,238,0.96); position: relative; z-index: 1001; isolation: isolate; padding: 15px; margin: -15px; border-radius: 8px; }
   .nav-logo-mark {
     width: 38px; height: 38px; background: var(--bronze);
     display: flex; align-items: center; justify-content: center;
     font-family: var(--font-display); font-weight: 900;
     color: var(--white); font-size: 18px; flex-shrink: 0;
   }
-  .nav-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+  .nav-logo-text { display: flex; flex-direction: column; line-height: 1.1; background: transparent; }
+  .nav-logo-image { background: transparent; }
+  .logo-container { background: transparent; }
   .nav-logo-text span:first-child { font-family: var(--font-display); font-weight: 700; font-size: 16px; color: var(--ink); }
   .nav-logo-text span:last-child { font-size: 10px; color: var(--bronze); letter-spacing: 1.5px; text-transform: uppercase; }
   .nav-links { display: flex; gap: 32px; list-style: none; }
@@ -231,7 +233,7 @@
   <a href="#home" class="nav-logo">
     <div class="nav-logo-mark">M</div>
     <div class="nav-logo-text">
-      <span>Mancraft</span>
+      <div style="width:120px; height:60px; background-image: url('./images/mancraftlogo_transparent.png'); background-size: contain; background-repeat: no-repeat; background-position: center; position: relative; z-index: 1002;"></div>
       <span>Property Management</span>
     </div>
   </a>
@@ -259,15 +261,15 @@
 </nav>
 
 <section id="home">
-  <div class="hero-grid-bg"></div>
-  <div class="hero-accent"></div>
-  <div class="hero-accent-bar"></div>
-  <div class="hero-eyebrow">Trusted Since 2011 &middot; Bengaluru, India</div>
+  <div class="hero-grid-bg" ></div>
+  <div class="hero-accent" ></div>
+  <div class="hero-accent-bar" ></div>
+  <div class="hero-eyebrow" >Trusted Since 2011 &middot; Bengaluru, India</div>
   <h1 class="hero-headline">
     Property Management
     <em>Done Right.</em>
   </h1>
-  <p class="hero-sub">Comprehensive facility management, maintenance &amp; support services for corporate, industrial, and residential properties across Bengaluru.</p>
+  <p class="hero-sub" >Comprehensive facility management, maintenance &amp; support services for corporate, industrial, and residential properties across Bengaluru.</p>
   <div class="hero-ctas">
     <a href="#services" class="btn-primary">Explore Services</a>
     <a href="#gallery" class="btn-outline">View Our Work</a>
