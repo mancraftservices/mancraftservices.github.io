@@ -191,8 +191,9 @@
   .footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); text-decoration: none; }
   .footer-links a:hover { color: var(--bronze-lt); }
 
-  .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: var(--ivory); z-index: 999; flex-direction: column; padding: 48px 5vw; gap: 28px; border-top: 1px solid var(--ivory-3); }
+  .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: var(--ivory); z-index: 1001; flex-direction: column; padding: 48px 5vw; gap: 28px; border-top: 1px solid var(--ivory-3); }
   .mobile-menu.open { display: flex; }
+  body.menu-open { overflow: hidden; }
   .mobile-menu a { text-decoration: none; color: var(--ink-2); font-size: 22px; font-family: var(--font-display); font-weight: 700; transition: color var(--transition); }
   .mobile-menu a:hover { color: var(--bronze); }
 
@@ -233,7 +234,7 @@
   <a href="#home" class="nav-logo">
     <div class="nav-logo-mark">M</div>
     <div class="nav-logo-text">
-      <div style="width:120px; height:60px; background-image: url('./images/mancraftlogo_transparent.png'); background-size: contain; background-repeat: no-repeat; background-position: center; position: relative; z-index: 1002;"></div>
+      <div style="width:120px; height:30px; background-image: url('./images/mancraftlogo_transparent.png'); background-size: contain; background-repeat: no-repeat; background-position: center; position: relative; z-index: 1002;"></div>
       <span>Property Management</span>
     </div>
   </a>
@@ -413,8 +414,15 @@
 <script>
   const ham = document.getElementById('ham');
   const menu = document.getElementById('mobileMenu');
-  ham.addEventListener('click', () => menu.classList.toggle('open'));
-  function closeMobileMenu() { menu.classList.remove('open'); }
+  const body = document.body;
+  ham.addEventListener('click', () => {
+    menu.classList.toggle('open');
+    body.classList.toggle('menu-open');
+  });
+  function closeMobileMenu() {
+    menu.classList.remove('open');
+    body.classList.remove('menu-open');
+  }
 
   const reveals = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver(entries => {
