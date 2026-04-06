@@ -427,6 +427,13 @@
     menu.classList.remove('open');
     body.classList.remove('menu-open');
   }
+  
+  // Close menu when clicking outside the content area
+  menu.addEventListener('click', (e) => {
+    if (e.target === menu) {
+      closeMobileMenu();
+    }
+  });
 
   const reveals = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver(entries => {
