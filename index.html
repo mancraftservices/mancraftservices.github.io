@@ -1,367 +1,442 @@
-<!DOCTYPE HTML>
-<!--
-	Miniport by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>Mancraft Property Management Services</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-F5ZYDQKBVJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mancraft Property Management Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  gtag('config', 'G-F5ZYDQKBVJ');
-</script>
+  :root {
+    --ivory:      #F7F3EE;
+    --ivory-2:    #EDE7DC;
+    --ivory-3:    #E2D9CC;
+    --ivory-4:    #D4C9B8;
+    --bronze:     #8B5E3C;
+    --bronze-dk:  #6B4628;
+    --bronze-lt:  #B07D54;
+    --bronze-pale:#F2E8DF;
+    --ink:        #2A1F14;
+    --ink-2:      #4A3828;
+    --ink-3:      #7A6555;
+    --ink-4:      #A89280;
+    --white:      #FFFFFF;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body:    'DM Sans', system-ui, sans-serif;
+    --transition: 0.25s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    background: var(--ivory);
+    color: var(--ink);
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5vw; height: 70px;
+    background: rgba(247,243,238,0.96);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--ivory-3);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-logo-mark {
+    width: 38px; height: 38px; background: var(--bronze);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 900;
+    color: var(--white); font-size: 18px; flex-shrink: 0;
+  }
+  .nav-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+  .nav-logo-text span:first-child { font-family: var(--font-display); font-weight: 700; font-size: 16px; color: var(--ink); }
+  .nav-logo-text span:last-child { font-size: 10px; color: var(--bronze); letter-spacing: 1.5px; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--ink-3); font-size: 13px; letter-spacing: 0.4px; font-weight: 500; transition: color var(--transition); text-transform: uppercase; }
+  .nav-links a:hover { color: var(--bronze); }
+  .nav-cta { background: var(--bronze); color: var(--white); border: none; padding: 9px 20px; font-family: var(--font-body); font-weight: 600; font-size: 13px; cursor: pointer; text-decoration: none; letter-spacing: 0.3px; transition: background var(--transition); }
+  .nav-cta:hover { background: var(--bronze-dk); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--ink); transition: var(--transition); }
+
+  #home {
+    min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+    padding: 120px 5vw 80px; position: relative; overflow: hidden; background: var(--ivory);
+  }
+  .hero-grid-bg {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image: linear-gradient(rgba(139,94,60,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(139,94,60,0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-accent {
+    position: absolute; top: 0; right: 0;
+    width: 42vw; height: 100%; pointer-events: none;
+    background: var(--bronze-pale);
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  .hero-accent-bar { position: absolute; left: 0; bottom: 0; height: 3px; width: 38vw; background: linear-gradient(90deg, var(--bronze), transparent); }
+  .hero-eyebrow { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--bronze); margin-bottom: 20px; font-weight: 500; display: flex; align-items: center; gap: 12px; position: relative; }
+  .hero-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--bronze); }
+  .hero-headline { font-family: var(--font-display); font-size: clamp(38px, 6.5vw, 84px); font-weight: 900; line-height: 1.0; margin-bottom: 28px; max-width: 760px; color: var(--ink); position: relative; }
+  .hero-headline em { font-style: normal; color: var(--bronze); display: block; }
+  .hero-sub { font-size: clamp(14px, 1.8vw, 17px); color: var(--ink-3); max-width: 500px; line-height: 1.75; margin-bottom: 48px; font-weight: 300; position: relative; }
+  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; position: relative; }
+  .btn-primary { background: var(--bronze); color: var(--white); padding: 14px 32px; text-decoration: none; font-weight: 600; font-size: 14px; letter-spacing: 0.3px; transition: background var(--transition); display: inline-block; }
+  .btn-primary:hover { background: var(--bronze-dk); }
+  .btn-outline { border: 1.5px solid var(--bronze); color: var(--bronze); padding: 14px 32px; text-decoration: none; font-weight: 500; font-size: 14px; transition: background var(--transition), color var(--transition); display: inline-block; background: transparent; }
+  .btn-outline:hover { background: var(--bronze); color: var(--white); }
+
+  .hero-stats { display: flex; gap: 0; margin-top: 70px; border-top: 1.5px solid var(--ivory-3); padding-top: 40px; position: relative; }
+  .hero-stat { flex: 1; padding-right: 32px; border-right: 1.5px solid var(--ivory-3); }
+  .hero-stat:last-child { border-right: none; padding-right: 0; padding-left: 32px; }
+  .hero-stat:not(:first-child):not(:last-child) { padding: 0 32px; }
+  .hero-stat-num { font-family: var(--font-display); font-size: 38px; font-weight: 700; color: var(--bronze); line-height: 1; }
+  .hero-stat-label { font-size: 12px; color: var(--ink-4); margin-top: 5px; text-transform: uppercase; letter-spacing: 1px; }
+
+  section { padding: 100px 5vw; }
+  .section-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--bronze); margin-bottom: 14px; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+  .section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--bronze); }
+  .section-title { font-family: var(--font-display); font-size: clamp(26px, 3.8vw, 50px); font-weight: 700; line-height: 1.1; margin-bottom: 16px; color: var(--ink); }
+  .section-title span { color: var(--bronze); }
+  .section-sub { color: var(--ink-3); font-size: 16px; max-width: 540px; font-weight: 300; line-height: 1.75; }
+
+  #services { background: var(--ivory-2); }
+  .services-header { margin-bottom: 60px; }
+  .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--ivory-3); border: 1px solid var(--ivory-3); }
+  .service-card { background: var(--ivory-2); padding: 36px 26px; transition: background var(--transition); position: relative; overflow: hidden; }
+  .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--bronze); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease; }
+  .service-card:hover { background: var(--ivory); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon { width: 48px; height: 48px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; background: var(--bronze-pale); border: 1px solid var(--ivory-3); }
+  .service-icon svg { width: 22px; height: 22px; stroke: var(--bronze); fill: none; stroke-width: 1.5; }
+  .service-name { font-family: var(--font-display); font-size: 17px; font-weight: 700; margin-bottom: 14px; color: var(--ink); line-height: 1.2; }
+  .service-items { list-style: none; }
+  .service-items li { font-size: 13px; color: var(--ink-3); padding: 5px 0; border-bottom: 1px solid var(--ivory-3); display: flex; align-items: center; gap: 8px; font-weight: 300; }
+  .service-items li:last-child { border-bottom: none; }
+  .service-items li::before { content: ''; display: block; width: 4px; height: 4px; background: var(--bronze); flex-shrink: 0; border-radius: 50%; }
+
+  #why { display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0; }
+  .why-left { background: var(--ivory); padding: 100px 5vw; }
+  .why-left .section-title { margin-bottom: 20px; }
+  .why-left > p { color: var(--ink-3); font-size: 15px; font-weight: 300; line-height: 1.8; margin-bottom: 36px; }
+  .why-contact-card { background: var(--bronze-pale); border: 1px solid var(--ivory-3); padding: 26px; margin-top: 40px; }
+  .why-contact-card p { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--bronze); margin-bottom: 12px; font-weight: 600; }
+  .why-contact-card a { display: block; color: var(--ink-2); text-decoration: none; font-size: 15px; margin-bottom: 6px; }
+  .why-contact-card a:hover { color: var(--bronze); }
+  .why-right { background: var(--ivory-2); padding: 100px 5vw; }
+  .why-item { padding: 28px 0; border-bottom: 1px solid var(--ivory-3); display: grid; grid-template-columns: 36px 1fr; gap: 20px; align-items: start; }
+  .why-item:first-child { border-top: 1px solid var(--ivory-3); }
+  .why-num { font-family: var(--font-display); font-size: 13px; font-weight: 700; color: var(--bronze); margin-top: 2px; }
+  .why-item-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; color: var(--ink); }
+  .why-item-text { font-size: 13px; color: var(--ink-3); font-weight: 300; line-height: 1.65; }
+
+  #clients { background: var(--ivory); text-align: center; }
+  .clients-header { margin-bottom: 56px; }
+  .clients-header .section-label { justify-content: center; }
+  .clients-header .section-label::before { display: none; }
+  .clients-strip { display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px; background: var(--ivory-3); border: 1px solid var(--ivory-3); }
+  .client-item { background: var(--ivory); padding: 30px 18px; display: flex; align-items: center; justify-content: center; transition: background var(--transition); min-height: 100px; }
+  .client-item:hover { background: var(--bronze-pale); }
+  .client-item img { max-width: 100%; max-height: 44px; object-fit: contain; filter: grayscale(1) opacity(0.45); transition: filter var(--transition); }
+  .client-item:hover img { filter: grayscale(0) opacity(1); }
+
+  #gallery { background: var(--ivory-2); }
+  .gallery-header { margin-bottom: 56px; }
+  .gallery-masonry { display: grid; grid-template-columns: repeat(12, 1fr); gap: 6px; }
+  .gallery-item { position: relative; overflow: hidden; cursor: pointer; background: var(--ivory-3); }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+  .gallery-item:hover img { transform: scale(1.06); }
+  .gallery-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(42,31,20,0.82) 0%, transparent 55%); opacity: 0; transition: opacity 0.35s ease; display: flex; align-items: flex-end; padding: 20px; }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+  .gallery-caption { font-size: 13px; font-weight: 500; color: var(--white); line-height: 1.3; }
+  .gallery-caption span { display: block; font-size: 10px; color: var(--bronze-lt); margin-bottom: 3px; letter-spacing: 1px; text-transform: uppercase; }
+  .g1 { grid-column: span 5; grid-row: span 2; min-height: 380px; }
+  .g2 { grid-column: span 4; min-height: 185px; }
+  .g3 { grid-column: span 3; min-height: 185px; }
+  .g4 { grid-column: span 4; min-height: 185px; }
+  .g5 { grid-column: span 3; min-height: 185px; }
+  .g6 { grid-column: span 4; min-height: 185px; }
+
+  #contact { display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0; }
+  .contact-left { background: var(--bronze-pale); padding: 100px 5vw; }
+  .contact-left .section-title { margin-bottom: 16px; }
+  .contact-left > p { color: var(--ink-3); font-size: 15px; font-weight: 300; margin-bottom: 40px; }
+  .contact-info-row { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 24px; }
+  .contact-info-icon { width: 40px; height: 40px; flex-shrink: 0; background: var(--white); border: 1px solid var(--ivory-3); display: flex; align-items: center; justify-content: center; }
+  .contact-info-icon svg { width: 16px; height: 16px; stroke: var(--bronze); fill: none; stroke-width: 1.5; }
+  .contact-info-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--bronze); margin-bottom: 3px; font-weight: 600; }
+  .contact-info-val { font-size: 15px; color: var(--ink-2); }
+  .contact-right { background: var(--ivory); padding: 100px 5vw; }
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--ink-4); font-weight: 600; }
+  .form-group input, .form-group select, .form-group textarea { background: var(--white); border: 1px solid var(--ivory-3); color: var(--ink); padding: 12px 14px; font-family: var(--font-body); font-size: 14px; outline: none; transition: border-color var(--transition); border-radius: 0; appearance: none; }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: var(--ink-4); }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--bronze); }
+  .form-group textarea { resize: vertical; min-height: 120px; }
+  .form-submit { background: var(--bronze); color: var(--white); border: none; padding: 14px 32px; font-family: var(--font-body); font-weight: 600; font-size: 14px; cursor: pointer; letter-spacing: 0.3px; transition: background var(--transition); align-self: flex-start; margin-top: 4px; }
+  .form-submit:hover { background: var(--bronze-dk); }
+
+  footer { background: var(--ink); color: rgba(255,255,255,0.5); padding: 44px 5vw; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  .footer-brand { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--white); }
+  .footer-brand span { color: var(--bronze-lt); }
+  footer p { font-size: 12px; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); text-decoration: none; }
+  .footer-links a:hover { color: var(--bronze-lt); }
+
+  .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: var(--ivory); z-index: 999; flex-direction: column; padding: 48px 5vw; gap: 28px; border-top: 1px solid var(--ivory-3); }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { text-decoration: none; color: var(--ink-2); font-size: 22px; font-family: var(--font-display); font-weight: 700; transition: color var(--transition); }
+  .mobile-menu a:hover { color: var(--bronze); }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 1100px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .clients-strip { grid-template-columns: repeat(4, 1fr); }
+  }
+  @media (max-width: 900px) {
+    #why, #contact { grid-template-columns: 1fr; }
+    .why-left, .why-right, .contact-left, .contact-right { padding: 70px 5vw; }
+    .gallery-masonry { grid-template-columns: repeat(2, 1fr); }
+    .g1,.g2,.g3,.g4,.g5,.g6 { grid-column: span 1; min-height: 220px; }
+    .g1 { grid-column: span 2; min-height: 280px; }
+    .hero-stats { flex-wrap: wrap; gap: 0; }
+    .hero-stat, .hero-stat:not(:first-child):not(:last-child), .hero-stat:last-child { flex: 1 1 calc(50% - 1px); border-right: none; padding: 20px 0; border-bottom: 1.5px solid var(--ivory-3); }
+  }
+  @media (max-width: 768px) {
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .services-grid { grid-template-columns: 1fr; }
+    .clients-strip { grid-template-columns: repeat(3, 1fr); }
+    .form-row { grid-template-columns: 1fr; }
+    section { padding: 70px 5vw; }
+  }
+  @media (max-width: 480px) {
+    .clients-strip { grid-template-columns: repeat(2, 1fr); }
+    .gallery-masonry { grid-template-columns: 1fr; }
+    .g1 { grid-column: span 1; }
+  }
+</style>
 </head>
+<body>
 
-<body class="is-preload">
-	<!-- Nav -->
-	<nav id="nav">
+<nav>
+  <a href="#home" class="nav-logo">
+    <div class="nav-logo-mark">M</div>
+    <div class="nav-logo-text">
+      <span>Mancraft</span>
+      <span>Property Management</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#clients">Clients</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get a Quote</a>
+  <button class="hamburger" id="ham" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-		<ul class="container">
-			
-			<li><a href="#Home">Home</a></li>
-			<li><a href="#Services">Services</a></li>
-			<li><a href="#AboutUs">Why Us</a></li>
-			<li><a href="#Clients">Clients</a></li>
-			<li><a href="#portfolio">Projects</a></li>
-			<li>
-				<div  style="font-weight: bold;color:indianred;">
-					<span>Mobile : 9902877750</span>
-					<span style="padding-left: 10px;">Email : services@mancraft.in</span>
-				</div>
-			</li>
-			<li>
-				
-			</li>
-		</ul>
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="#home" onclick="closeMobileMenu()">Home</a>
+  <a href="#services" onclick="closeMobileMenu()">Services</a>
+  <a href="#why" onclick="closeMobileMenu()">Why Us</a>
+  <a href="#clients" onclick="closeMobileMenu()">Clients</a>
+  <a href="#gallery" onclick="closeMobileMenu()">Gallery</a>
+  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+</nav>
 
-	</nav>
+<section id="home">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-accent"></div>
+  <div class="hero-accent-bar"></div>
+  <div class="hero-eyebrow">Trusted Since 2011 &middot; Bengaluru, India</div>
+  <h1 class="hero-headline">
+    Property Management
+    <em>Done Right.</em>
+  </h1>
+  <p class="hero-sub">Comprehensive facility management, maintenance &amp; support services for corporate, industrial, and residential properties across India.</p>
+  <div class="hero-ctas">
+    <a href="#services" class="btn-primary">Explore Services</a>
+    <a href="#gallery" class="btn-outline">View Our Work</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="hero-stat-num">15+</div><div class="hero-stat-label">Years Experience</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">50+</div><div class="hero-stat-label">Corporate Clients</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">24/7</div><div class="hero-stat-label">Support Available</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">100%</div><div class="hero-stat-label">Client Satisfaction</div></div>
+  </div>
+</section>
 
-	<!-- Home / Hero Section -->
-	<div id="Home" class="hero-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-6 col-12-medium col-12-small">
-					<img class="logo-hero" src="images/mancraftlogo_transparent.png"
-						alt="Mancraft Property Management Services" />
-				</div>
-				<div class="col-6 col-12-medium col-12-small">
-					<header class="hero-header">
-						<h1><strong>Professional Property Management Services</strong></h1>
-						<p class="hero-subtitle">Comprehensive facility and property management solutions for corporate, industrial, and residential properties since 2011</p>
-						<div class="hero-cta">
-							<a href="#Services" class="button primary">Explore Services</a>
-							<a href="#portfolio" class="button">View Portfolio</a>
-						</div>
-					</header>
-				</div>
-			</div>
-			<div class="trust-indicators">
-				<div class="indicator">
-					<h4>15+</h4>
-					<p>Years Experience</p>
-				</div>
-				<div class="indicator">
-					<h4>50+</h4>
-					<p>Corporate Clients</p>
-				</div>
-				<div class="indicator">
-					<h4>24/7</h4>
-					<p>Support Available</p>
-				</div>
-				<div class="indicator">
-					<h4>100%</h4>
-					<p>Client Satisfaction</p>
-				</div>
-			</div>
-		</div>
-	</div>
+<section id="services">
+  <div class="services-header reveal">
+    <div class="section-label">What We Offer</div>
+    <h2 class="section-title">Our <span>Comprehensive</span> Services</h2>
+    <p class="section-sub">End-to-end facility solutions tailored for corporate, industrial, or residential properties.</p>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
+      <div class="service-name">Facility Management</div>
+      <ul class="service-items"><li>Integrated Facility Management</li><li>Operation &amp; Maintenance</li><li>Management Support</li></ul>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21V11h6v10"/></svg></div>
+      <div class="service-name">Civil &amp; Interior Works</div>
+      <ul class="service-items"><li>Civil Works &amp; Renovations</li><li>Painting &amp; Carpentry</li><li>Grouting &amp; Finishing</li><li>Debris &amp; Waste Management</li></ul>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+      <div class="service-name">Cleaning Services</div>
+      <ul class="service-items"><li>Industrial &amp; Commercial Cleaning</li><li>Specialty Acid/Soap Wash</li><li>Fleet &amp; Vehicle Cleaning</li><li>Eco-Friendly Solutions</li></ul>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M2 12h4M18 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+      <div class="service-name">Pest Control</div>
+      <ul class="service-items"><li>Fogging &amp; Chemical Spraying</li><li>Termite &amp; Wood Borer Control</li><li>Rodent &amp; Bird Control</li><li>Mosquito Management</li></ul>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+      <div class="service-name">Operation &amp; Maintenance</div>
+      <ul class="service-items"><li>Electrical Maintenance</li><li>Plumbing &amp; HVAC Services</li><li>DG Operations &amp; Maintenance</li><li>Pump &amp; Panel Maintenance</li></ul>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="service-name">Office &amp; Business Support</div>
+      <ul class="service-items"><li>Administrative Support</li><li>Helpdesk &amp; Reception</li><li>Event Coordination</li><li>Printing &amp; Document Services</li></ul>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+      <div class="service-name">Housekeeping &amp; Upkeep</div>
+      <ul class="service-items"><li>Daily Housekeeping</li><li>Tank &amp; Facade Cleaning</li><li>Pantry &amp; Kitchen Services</li><li>Specialized Deep Cleaning</li></ul>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div class="service-name">Landscaping Services</div>
+      <ul class="service-items"><li>Garden Maintenance &amp; Design</li><li>Lawn &amp; Shrub Care</li><li>De-weeding &amp; Soil Management</li><li>Seasonal Plant Maintenance</li></ul>
+    </div>
+  </div>
+</section>
 
-	<!-- Services Section -->
-	<article id="Services" class="wrapper style2">
-		<div class="container">
-			<header>
-				<h2>Our Comprehensive Services</h2>
-				<p>Tailored solutions across facility management, maintenance, and support services</p>
-			</header>
-			<div class="row services-grid">
-				<div class="col-6 col-12-medium col-12-small">
-					<section class="service-box">
-						<div class="service-icon">
-							<i class="fas fa-tools"></i>
-						</div>
-						<h3>Facility Management Services</h3>
-						<ul class="no-bullets">
-							<li>✓ Integrated Facility Management</li>
-							<li>✓ Operation and Maintenance</li>
-							<li>✓ Management Support</li>
-						</ul>
-					</section>
-				</div>
-				<div class="col-6 col-12-medium col-12-small">
-					<section class="service-box">
-						<div class="service-icon">
-							<i class="fas fa-building"></i>
-						</div>
-						<h3>Civil & Interior Services</h3>
-						<ul class="no-bullets">
-							<li>✓ Civil Works & Renovations</li>
-							<li>✓ Painting and Carpentry</li>
-							<li>✓ Grouting & Finishing</li>
-							<li>✓ Debris & Waste Management</li>
-						</ul>
-					</section>
-				</div>
-				<div class="col-6 col-12-medium col-12-small">
-					<section class="service-box">
-						<div class="service-icon">
-							<i class="fas fa-broom"></i>
-						</div>
-						<h3>Cleaning Services</h3>
-						<ul class="no-bullets">
-							<li>✓ Industrial & Commercial Cleaning</li>
-							<li>✓ Specialty Cleaning (Acid/Soap Wash)</li>
-							<li>✓ Fleet & Vehicle Cleaning</li>
-							<li>✓ Eco-Friendly Solutions</li>
-						</ul>
-					</section>
-				</div>
-				<div class="col-6 col-12-medium col-12-small">
-					<section class="service-box">
-						<div class="service-icon">
-							<i class="fas fa-shield-alt"></i>
-						</div>
-						<h3>Pest Control Services</h3>
-						<ul class="no-bullets">
-							<li>✓ Fogging & Chemical Spraying</li>
-							<li>✓ Termite & Wood Borer Control</li>
-							<li>✓ Rodent & Bird Control</li>
-							<li>✓ Mosquito Management Programs</li>
-						</ul>
-					</section>
-				</div>
-				<div class="col-6 col-12-medium col-12-small">
-					<section class="service-box">
-						<div class="service-icon">
-							<i class="fas fa-wrench"></i>
-						</div>
-						<h3>Operation & Maintenance</h3>
-						<ul class="no-bullets">
-							<li>✓ Electrical Maintenance</li>
-							<li>✓ Plumbing & HVAC Services</li>
-							<li>✓ DG Operations & Maintenance</li>
-							<li>✓ Pump, Panel & System Maintenance</li>
-						</ul>
-					</section>
-				</div>
-				<div class="col-6 col-12-medium col-12-small">
-					<section class="service-box">
-						<div class="service-icon">
-							<i class="fas fa-handshake"></i>
-						</div>
-						<h3>Office & Business Support</h3>
-						<ul class="no-bullets">
-							<li>✓ Administrative Support</li>
-							<li>✓ Helpdesk & Reception Services</li>
-							<li>✓ Event Coordination</li>
-							<li>✓ Printing & Document Services</li>
-						</ul>
-					</section>
-				</div>
-				<div class="col-6 col-12-medium col-12-small">
-					<section class="service-box">
-						<div class="service-icon">
-							<i class="fas fa-home"></i>
-						</div>
-						<h3>Housekeeping & Upkeep</h3>
-						<ul class="no-bullets">
-							<li>✓ Daily Housekeeping</li>
-							<li>✓ Tank & Facade Cleaning</li>
-							<li>✓ Pantry & Kitchen Services</li>
-							<li>✓ Specialized Deep Cleaning</li>
-						</ul>
-					</section>
-				</div>
-				<div class="col-6 col-12-medium col-12-small">
-					<section class="service-box">
-						<div class="service-icon">
-							<i class="fas fa-leaf"></i>
-						</div>
-						<h3>Landscaping Services</h3>
-						<ul class="no-bullets">
-							<li>✓ Garden Maintenance & Design</li>
-							<li>✓ Lawn & Shrub Care</li>
-							<li>✓ De-weeding & Soil Management</li>
-							<li>✓ Seasonal Plant Maintenance</li>
-						</ul>
-					</section>
-				</div>
-			</div>
-		</div>
-	</article>
-	<!-- Why Us / Benefits Section -->
-	<article id="AboutUs" class="wrapper style3">
-		<div class="container">
-			<header>
-				<h2>Why Choose Mancraft?</h2>
-				<p>Trusted by leading enterprises across India</p>
-			</header>
-			<div class="row benefits-grid">
-				<div class="col-6 col-12-medium col-12-small">
-					<section class="benefit-box">
-						<h3>Single Point of Contact</h3>
-						<p>Streamline operations with one dedicated account manager. No more juggling multiple vendors—Mancraft handles all your facility needs seamlessly.</p>
-					</section>
-				</div>
-				<div class="col-6 col-12-medium col-12-small">
-					<section class="benefit-box">
-						<h3>Cost Efficiency</h3>
-						<p>Reduce overhead by outsourcing to our professional team. Lower operational costs while maintaining superior service quality and standards.</p>
-					</section>
-				</div>
-				<div class="col-6 col-12-medium col-12-small">
-					<section class="benefit-box">
-						<h3>Experienced & Certified Team</h3>
-						<p>Over 15 years of industry expertise. Trained professionals in all service verticals ensure your property is managed to the highest standards.</p>
-					</section>
-				</div>
-				<div class="col-6 col-12-medium col-12-small">
-					<section class="benefit-box">
-						<h3>24/7 Operational Support</h3>
-						<p>Round-the-clock availability for emergency maintenance and support. Your property is never left unattended, ensuring business continuity.</p>
-					</section>
-				</div>
-				<div class="col-6 col-12-medium col-12-small">
-					<section class="benefit-box">
-						<h3>Customized Solutions</h3>
-						<p>Every business is unique. We tailor our services to match your specific requirements and budget, whether small offices or large complexes.</p>
-					</section>
-				</div>
-				<div class="col-6 col-12-medium col-12-small">
-					<section class="benefit-box">
-						<h3>Compliance & Safety</h3>
-						<p>Full adherence to safety regulations, environmental standards, and industry best practices. All services meet statutory requirements.</p>
-					</section>
-				</div>
-			</div>
-		</div>
-	</article>
-	<!-- Trusted Clients Section -->
-	<article id="Clients" class="wrapper style2">
-		<div class="container">
-			<header>
-				<h2>Trusted by Leading Organizations</h2>
-				<p>Serving India's most reputable corporations and enterprises</p>
-			</header>
-			<div class="clients-grid">
-				<div class="client-logo">
-					<img src="images/clients/brigade.png" alt="Brigade Enterprises" />
-				</div>
-				<div class="client-logo">
-					<img src="images/clients/tata.jpeg" alt="Tata Group" />
-				</div>
-				<div class="client-logo">
-					<img src="images/clients/godrej.jpeg" alt="Godrej Group" />
-				</div>
-				<div class="client-logo">
-					<img src="images/clients/mjr.jpeg" alt="MJR Group" />
-				</div>
-				<div class="client-logo">
-					<img src="images/clients/oleo.png" alt="Oleo Chemicals" />
-				</div>
-				<div class="client-logo">
-					<img src="images/clients/karle.png" alt="Karle Constructions" />
-				</div>
-				<div class="client-logo">
-					<img src="images/clients/mantri.gif" alt="Mantri Developers" />
-				</div>
-			</div>
-		</div>
-	</article>
-	<!-- Gallery / Project Showcase Section -->
-	<article id="portfolio" class="wrapper style3">
-		<div class="container">
-			<header>
-				<h2>Project Gallery & Expertise</h2>
-				<p>Showcasing our quality of work across Indian enterprises</p>
-			</header>
-			<div class="gallery-grid">
-				<div class="gallery-item col-4 col-6-medium col-12-small">
-					<article class="box style2 gallery-card">
-						<a href="#" class="image featured"><img class="imgfit" src="images/gallery/team.jpg" alt="Mancraft Professional Team" /></a>
-						<div class="gallery-content">
-							<h3>Our Professional Team</h3>
-							<p>Dedicated, trained, and certified professionals delivering excellence in every project</p>
-						</div>
-					</article>
-				</div>
-				<div class="gallery-item col-4 col-6-medium col-12-small">
-					<article class="box style2 gallery-card">
-						<a href="#" class="image featured"><img class="imgfit" src="images/gallery/scrub.jpg" alt="Commercial Cleaning Services" /></a>
-						<div class="gallery-content">
-							<h3>Advanced Cleaning Equipment</h3>
-							<p>Industry-standard machines and eco-friendly solutions for immaculate facilities</p>
-						</div>
-					</article>
-				</div>
-				<div class="gallery-item col-4 col-6-medium col-12-small">
-					<article class="box style2 gallery-card">
-						<a href="#" class="image featured"><img class="imgfit" src="images/gallery/gardening.jpg" alt="Landscaping Services" /></a>
-						<div class="gallery-content">
-							<h3>Landscaping Excellence</h3>
-							<p>Beautiful, well-maintained gardens and green spaces enhancing property value</p>
-						</div>
-					</article>
-				</div>
-				<div class="gallery-item col-4 col-6-medium col-12-small">
-					<article class="box style2 gallery-card">
-						<a href="#" class="image featured"><img class="imgfit" src="images/gallery/gardening-2.jpg" alt="Garden Maintenance" /></a>
-						<div class="gallery-content">
-							<h3>Year-Round Garden Care</h3>
-							<p>Expert landscaping maintenance for residential and commercial properties</p>
-						</div>
-					</article>
-				</div>
-				<div class="gallery-item col-4 col-6-medium col-12-small">
-					<article class="box style2 gallery-card">
-						<a href="#" class="image featured"><img class="imgfit" src="images/gallery/plumbing.jpg" alt="Plumbing Maintenance" /></a>
-						<div class="gallery-content">
-							<h3>Expert Plumbing Services</h3>
-							<p>Professional plumbing maintenance and repairs ensuring uninterrupted water systems</p>
-						</div>
-					</article>
-				</div>
-				<div class="gallery-item col-4 col-6-medium col-12-small">
-					<article class="box style2 gallery-card">
-						<a href="#" class="image featured"><img class="imgfit" src="images/gallery/pestcontrol.jpg" alt="Pest Control Services" /></a>
-						<div class="gallery-content">
-							<h3>Professional Pest Control</h3>
-							<p>Safe, effective pest management with industry-standard equipment and protocols</p>
-						</div>
-					</article>
-				</div>
-			</div>
-		</div>
-	</article>
+<section id="why" style="padding:0;">
+  <div class="why-left reveal">
+    <div class="section-label">Why Choose Us</div>
+    <h2 class="section-title">One Partner,<br><span>Total Confidence</span></h2>
+    <p>We act as a single point of accountability for all your facility needs — from daily housekeeping to critical maintenance — so your team can focus on what they do best.</p>
+    <div class="why-contact-card">
+      <p>Reach Us Directly</p>
+      <a href="tel:9902877750">&#128222;&nbsp; +91 9902877750</a>
+      <a href="mailto:services@mancraft.in">&#9993;&nbsp; services@mancraft.in</a>
+    </div>
+  </div>
+  <div class="why-right reveal">
+    <div class="why-item"><div class="why-num">01</div><div><div class="why-item-title">Single Point of Contact</div><div class="why-item-text">One dedicated account manager handles everything. No juggling multiple vendors.</div></div></div>
+    <div class="why-item"><div class="why-num">02</div><div><div class="why-item-title">Cost Efficiency</div><div class="why-item-text">Reduce overhead by outsourcing to our professional team. Superior quality at lower operational cost.</div></div></div>
+    <div class="why-item"><div class="why-num">03</div><div><div class="why-item-title">15+ Years of Expertise</div><div class="why-item-text">Trained, certified professionals across all service verticals since 2011.</div></div></div>
+    <div class="why-item"><div class="why-num">04</div><div><div class="why-item-title">24/7 Operational Support</div><div class="why-item-text">Round-the-clock emergency maintenance ensuring your property is never left unattended.</div></div></div>
+    <div class="why-item"><div class="why-num">05</div><div><div class="why-item-title">Customized Solutions</div><div class="why-item-text">Tailored service packages for small offices to large commercial complexes.</div></div></div>
+    <div class="why-item"><div class="why-num">06</div><div><div class="why-item-title">Compliance &amp; Safety</div><div class="why-item-text">Full adherence to safety regulations, environmental standards, and statutory requirements.</div></div></div>
+  </div>
+</section>
 
+<section id="clients">
+  <div class="clients-header reveal">
+    <div class="section-label">Our Clients</div>
+    <h2 class="section-title" style="text-align:center;">Trusted by <span>Industry Leaders</span></h2>
+    <p class="section-sub" style="margin:0 auto;text-align:center;">Serving India's most reputable corporations and enterprises across sectors.</p>
+  </div>
+  <div class="clients-strip reveal">
+    <div class="client-item"><img src="https://mancraft.in/images/clients/brigade.png" alt="Brigade Enterprises"></div>
+    <div class="client-item"><img src="https://mancraft.in/images/clients/tata.jpeg" alt="Tata Group"></div>
+    <div class="client-item"><img src="https://mancraft.in/images/clients/godrej.jpeg" alt="Godrej Group"></div>
+    <div class="client-item"><img src="https://mancraft.in/images/clients/mjr.jpeg" alt="MJR Group"></div>
+    <div class="client-item"><img src="https://mancraft.in/images/clients/oleo.png" alt="Oleo Chemicals"></div>
+    <div class="client-item"><img src="https://mancraft.in/images/clients/karle.png" alt="Karle Constructions"></div>
+    <div class="client-item"><img src="https://mancraft.in/images/clients/mantri.gif" alt="Mantri Developers"></div>
+  </div>
+</section>
 
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
+<section id="gallery">
+  <div class="gallery-header reveal">
+    <div class="section-label">Our Work</div>
+    <h2 class="section-title">Project <span>Gallery</span></h2>
+    <p class="section-sub">A visual showcase of our quality, expertise, and attention to detail across Indian enterprises.</p>
+  </div>
+  <div class="gallery-masonry reveal">
+    <div class="gallery-item g1"><img src="https://mancraft.in/images/gallery/team.jpg" alt="Our Professional Team" loading="lazy"><div class="gallery-overlay"><div class="gallery-caption"><span>Our Team</span>Professional &amp; Certified</div></div></div>
+    <div class="gallery-item g2"><img src="https://mancraft.in/images/gallery/scrub.jpg" alt="Commercial Cleaning" loading="lazy"><div class="gallery-overlay"><div class="gallery-caption"><span>Cleaning Services</span>Advanced Equipment</div></div></div>
+    <div class="gallery-item g3"><img src="https://mancraft.in/images/gallery/gardening.jpg" alt="Landscaping" loading="lazy"><div class="gallery-overlay"><div class="gallery-caption"><span>Landscaping</span>Excellence in Green</div></div></div>
+    <div class="gallery-item g4"><img src="https://mancraft.in/images/gallery/gardening-2.jpg" alt="Garden Maintenance" loading="lazy"><div class="gallery-overlay"><div class="gallery-caption"><span>Garden Care</span>Year-Round Maintenance</div></div></div>
+    <div class="gallery-item g5"><img src="https://mancraft.in/images/gallery/plumbing.jpg" alt="Plumbing Services" loading="lazy"><div class="gallery-overlay"><div class="gallery-caption"><span>Plumbing</span>Expert Maintenance</div></div></div>
+    <div class="gallery-item g6"><img src="https://mancraft.in/images/gallery/pestcontrol.jpg" alt="Pest Control" loading="lazy"><div class="gallery-overlay"><div class="gallery-caption"><span>Pest Control</span>Safe &amp; Effective</div></div></div>
+  </div>
+</section>
 
+<section id="contact" style="padding:0;">
+  <div class="contact-left reveal">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title">Let's Manage Your <span>Property Together</span></h2>
+    <p>Tell us about your facility needs and our team will craft a tailored solution for you.</p>
+    <div class="contact-info-row"><div class="contact-info-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z"/></svg></div><div><div class="contact-info-label">Mobile</div><div class="contact-info-val">+91 9902877750</div></div></div>
+    <div class="contact-info-row"><div class="contact-info-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="contact-info-label">Email</div><div class="contact-info-val">services@mancraft.in</div></div></div>
+    <div class="contact-info-row"><div class="contact-info-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="contact-info-label">Location</div><div class="contact-info-val">Bengaluru, Karnataka, India</div></div></div>
+  </div>
+  <div class="contact-right reveal">
+    <div class="section-label">Send an Enquiry</div>
+    <h3 style="font-family:var(--font-display);font-size:26px;font-weight:700;color:var(--ink);margin-bottom:28px;">We'll get back to you<br><span style="color:var(--bronze);">within 24 hours.</span></h3>
+    <div class="contact-form">
+      <div class="form-row"><div class="form-group"><label>Your Name</label><input type="text" placeholder="Full name"></div><div class="form-group"><label>Company</label><input type="text" placeholder="Company name"></div></div>
+      <div class="form-row"><div class="form-group"><label>Phone</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div><div class="form-group"><label>Email</label><input type="email" placeholder="you@company.com"></div></div>
+      <div class="form-group"><label>Service Required</label><select><option value="">Select a service</option><option>Facility Management</option><option>Civil &amp; Interior Works</option><option>Cleaning Services</option><option>Pest Control</option><option>Operation &amp; Maintenance</option><option>Office &amp; Business Support</option><option>Housekeeping &amp; Upkeep</option><option>Landscaping Services</option><option>Multiple Services</option></select></div>
+      <div class="form-group"><label>Message</label><textarea placeholder="Tell us about your property and requirements..."></textarea></div>
+      <button class="form-submit" id="submitBtn">Send Enquiry &rarr;</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div><div class="footer-brand">Man<span>craft</span></div><p style="margin-top:6px;">Professional Property Management Since 2011</p></div>
+  <div class="footer-links"><a href="#services">Services</a><a href="#why">Why Us</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a></div>
+  <p>&copy; 2025 Mancraft Property Management Services. All rights reserved.</p>
+</footer>
+
+<script>
+  const ham = document.getElementById('ham');
+  const menu = document.getElementById('mobileMenu');
+  ham.addEventListener('click', () => menu.classList.toggle('open'));
+  function closeMobileMenu() { menu.classList.remove('open'); }
+
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  reveals.forEach(r => io.observe(r));
+
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) cur = s.getAttribute('id'); });
+    navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#'+cur ? 'var(--bronze)' : ''; });
+  });
+
+  document.getElementById('submitBtn').addEventListener('click', function() {
+    this.textContent = 'Enquiry Sent \u2713';
+    this.style.background = '#5a7a4a';
+    setTimeout(() => { this.textContent = 'Send Enquiry \u2192'; this.style.background = ''; }, 3000);
+  });
+</script>
 </body>
-
 </html>
